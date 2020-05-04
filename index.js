@@ -9,4 +9,14 @@ client.on('ready', () => {
     console.log('hello');
 });
 
+client.on('message', message => {
+    // if(message.content.startsWith(`${prefix}setName`)){
+        
+    // }
+    if (message.content === `${prefix}ping`) {
+        message.reply('pong');
+        message.channel.send('pong');
+    }
+});
+
 client.login(token);
