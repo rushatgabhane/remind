@@ -24,12 +24,16 @@ client.on('message', message => {
 	const args = message.content.slice(prefix.length).split(/ +/);
     const commandName = args.shift().toLowerCase();
     
-    if(!client.commands.has(commandName)) return;
-    
-    const command = client.commands.get(commandName);
+    const command = client.commands.get(commandName)
+		|| client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
+	if (!command) return;
 
-    if (command.args && !args.length) { // if args are required, set the parameter 'args' as true.
-    	return message.channel.send(`You didn't provide any arguments, ${message.author}!`);
+    if (command.args && !args.length) {
+    	let reply = `You didn't provide any arguments, ${message.author}!`;
+		if (command.usage) {
+			reply += `\nThe proper usage would be: \`${prefix}${command.name} ${command.usage}\``;
+		}
+		return message.channel.send(reply);
     }
     try {
         command.execute(message, args);
