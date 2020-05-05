@@ -1,6 +1,6 @@
 const {prefix, meaningOfLife} = require('./config.json');
 const env = require('dotenv').config();
-cosnt fs = require('fs');
+const fs = require('fs');
 
 const Discord = require('discord.js');
 const client = new Discord.Client();
