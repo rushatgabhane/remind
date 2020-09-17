@@ -1,5 +1,5 @@
 {
-  "name": "getrealnamesdiscord",
+  "name": "remind",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rushatgabhane/getRealNamesDiscord.git"
+    "url": "git+https://github.com/rushatgabhane/remind.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/rushatgabhane/getRealNamesDiscord/issues"
+    "url": "https://github.com/rushatgabhane/remind/issues"
   },
-  "homepage": "https://github.com/rushatgabhane/getRealNamesDiscord#readme",
+  "homepage": "https://github.com/rushatgabhane/remind#readme",
   "dependencies": {
     "discord.js": "^12.2.0",
     "dotenv": "^8.2.0"
