@@ -5,7 +5,8 @@ const cron = require('node-cron');
  
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const token = process.env.BOT_TOKEN;
+// const token = process.env.BOT_TOKEN;
+const token = "NzA2ODczNTg1Mjk3NTIyNzU5.XrA3vg.GlLGr6S3JOebhlbg5AyiF4W1haw";
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
