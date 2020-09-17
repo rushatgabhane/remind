@@ -1,8 +1,12 @@
 module.exports = {
     name: 'remind',
     description: 'Remind to game every interval',
-    args: false,
+    usage: '!remind []',
+    args: true,
     execute(message, args){
-        return message.channel.send('pong 🏓');
+        users = ["726865904595632179", "260390293881356294", "361140440361205772", "617322295685283875"];
+        
+        data.push
+        message.channel.send(data, { split: true });
     }
 };
