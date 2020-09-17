@@ -1,7 +1,8 @@
 const {prefix, meaningOfLife} = require('./config.json');
 const env = require('dotenv').config();
 const fs = require('fs');
-
+const cron = require('node-cron');
+ 
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const token = process.env.BOT_TOKEN;
@@ -41,7 +42,6 @@ client.on('message', message => {
         console.error(error);
         message.reply('there was an error trying to execute that command!');
     }
-    
 });
 
 client.login(token);
