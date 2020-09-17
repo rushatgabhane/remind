@@ -16,7 +16,7 @@ module.exports = {
             console.log(args[0]);
         }
 
-        if(ags[0] == "now"){
+        if(args[0] == "now"){
             helper.remind(message, users, data);
         }
         else if(helper.isValidHourOrMinute(args[0]) && isValidHourOrMinute(args[1])){
