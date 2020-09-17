@@ -6,7 +6,7 @@ module.exports = {
     execute(message, args, pgClient){
         users = ["726865904595632179", "260390293881356294", "361140440361205772", "617322295685283875"];
 
-        data.push
-        message.channel.send(data, { split: true });
+        // data.push
+        // message.channel.send(data, { split: true });
     }
 };
