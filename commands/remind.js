@@ -9,11 +9,6 @@ module.exports = {
     execute(message, args){
         var data = "";
         users = ["726865904595632179", "260390293881356294", "361140440361205772", "617322295685283875"];
-    
-        // debug
-        if(args[0] != null){
-            console.log(args[0]);
-        }
 
         if(args[0] == "now"){
             helper.remind(message, users, data);

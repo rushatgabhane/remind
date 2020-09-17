@@ -4,7 +4,6 @@ module.exports = {
     remind(message, users, data){
         var index = Math.floor(Math.random() * this.playMessages.length)
         for(let i = 0; i < users.length; i++){
-            // const User = client.users.cache.get(users[i]);
             data += `<@${users[i]} >`;
         }
         data += this.playMessages[index];
