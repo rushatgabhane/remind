@@ -6,7 +6,7 @@ module.exports = {
     args: false,
 	aliases: ['commands'],
 	usage: '[command name]',
-	execute(message, args, pgClient) {
+	execute(message, args) {
         const data = [];
         const { commands } = message.client;
         if(!args.length){

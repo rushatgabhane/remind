@@ -6,15 +6,6 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const token = process.env.BOT_TOKEN;
 
-const { Postgres } = require('pg');
-const pgClient = new Postgres({
-  connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false
-  }
-});
-pgClient.connect();
-
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
 client.commands = new Discord.Collection();
@@ -45,7 +36,7 @@ client.on('message', message => {
 		return message.channel.send(reply);
     }
     try {
-        command.execute(message, args, pgClient);
+        command.execute(message, args);
     } catch (error) {
         console.error(error);
         message.reply('there was an error trying to execute that command!');
