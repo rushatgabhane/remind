@@ -1,5 +1,5 @@
 module.exports = {
-    playMessages : ['aaj koi khelega?', 'val val val', 'val?', 'You\'re invited to play!', 'let\'s not play today.', 'hey there sexy'],
+    playMessages : ['aaj koi khelega?', 'val val val', 'val?', 'You\'re invited to play!', 'let\'s not play today.', 'hey there sexy', 'game on!', 'aao, biggy ki rating decrease karte hai.', 'wanna hear dxts cry about shots not being registered?', 'this bot is an example of creating solutions to non existent problems', 'pew pew pew :gun:', 'we are fighters, we are valorant.'],
     remind(message, users, data){
         var index = Math.floor(Math.random() * this.playMessages.length)
         for(let i = 0; i < users.length; i++){
