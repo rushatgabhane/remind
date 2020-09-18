@@ -20,14 +20,14 @@ module.exports = {
         else if(args.length >= 2 && helper.isValidHourOrMinute(args[0]) && helper.isValidHourOrMinute(args[1])){
             let minutes = args[1], hours = args[0];
             if(args.length == 3){
-                let timeZone = args[2].toLowerCase();
+                const timeZone = args[2].toLowerCase();
                 const time = helper.calcTime(timeZone);
                 if(time != undefined){
                     hours = time.getHours();
                     minutes = time.getMinutes();
                 }
             }
-
+            console.log(hours, minutes);
             const uniqueNum = helper.getCantorPair(minutes, hours);
             cronJobManager.add(`${uniqueNum}`, 
             `${minutes} ${hours} * * *`, () => {
