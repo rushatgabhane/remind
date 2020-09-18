@@ -18,8 +18,8 @@
   },
   "homepage": "https://github.com/rushatgabhane/remind#readme",
   "dependencies": {
+    "cron-job-manager": "^2.1.4",
     "discord.js": "^12.2.0",
-    "dotenv": "^8.2.0",
-    "node-cron": "^2.0.3"
+    "dotenv": "^8.2.0"
   }
 }

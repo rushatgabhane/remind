@@ -1,25 +1,46 @@
-const cron = require('node-cron');
 const helper = require('../helper.js');
+const help = require('./help.js');
+const CronJobManager = require('cron-job-manager');
+var cronJobManager = new CronJobManager();
+let tasks =  {};
 
 module.exports = {
     name: 'remind',
-    description: 'Remind to game every interval',
-    usage: '[hours] [minutes] OR now',
+    description: 'Remind to game.',
+    usage: 'hours minutes [timezone] | now | stop',
     args: true,
     execute(message, args){
-        var data = "";
-        users = ["726865904595632179", "260390293881356294", "361140440361205772", "617322295685283875"];
-
-        if(args[0] == "now"){
-            helper.remind(message, users, data);
+        let data = '';
+        users = ['726865904595632179', '260390293881356294', '361140440361205772', '617322295685283875'];
+        
+        if(args.length == 0) return help.execute(message, [this.name]);
+        if(args[0].toLowerCase() == 'now'){
+            return helper.remind(message, users, data);
         }
-        else if(helper.isValidHourOrMinute(args[0]) && helper.isValidHourOrMinute(args[1])){
-            var minute = args[1], hour = args[0];
-            console.log(minute, hour);
-            cron.schedule(`${minute} ${hour} * * *`, () => {
-                helper.remind(message, users, data);
-            });
-            message.channel.send(`you'll now be forced to game everyday.`);
+        else if(args.length >= 2 && helper.isValidHourOrMinute(args[0]) && helper.isValidHourOrMinute(args[1])){
+            let minutes = args[1], hours = args[0];
+            if(args.length == 3){
+                let timeZone = args[2].toLowerCase();
+                const time = helper.calcTime(timeZone);
+                if(time != undefined){
+                    hours = time.getHours();
+                    minutes = time.getMinutes();
+                }
+            }
+
+            const uniqueNum = helper.getCantorPair(minutes, hours);
+            cronJobManager.add(`${uniqueNum}`, 
+            `${minutes} ${hours} * * *`, () => {
+                helper.remind(message, users, data)
+            }, {start: true});
+            return message.channel.send('you\'ll now be forced to game everyday.');
+        }
+        else if(args[0].toLowerCase() == 'clear' || args[0].toLowerCase() == 'stop'){
+            cronJobManager.stopAll();
+            return message.reply('i feel useless now :pensive:\nwhat is my purpose?');
+        }
+        else {
+            return help.execute(message, [this.name]);
         }
     }
 };
