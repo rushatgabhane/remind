@@ -24,7 +24,7 @@ module.exports = {
     calcTime(timeZone, minutes, hours){
         let date = new Date(2020, 1, 5, hours, minutes, 0, 0);
         let utc = date.getTime() + (date.getTimezoneOffset() * 60000);
-        let nd = new Date(utc);
+        let nd = new Date(utc - (3600000 * this.timeZoneOffset[timeZone]));
         console.log(nd);
         return nd;
     },
