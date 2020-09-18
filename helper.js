@@ -18,7 +18,7 @@ module.exports = {
     timeZoneOffset : {
         ist : 5.5,
         bst : 3,
-        cet : 1,
+        cet : 2,
         utc : 0 
     },
     calcTime(timeZone, minutes, hours){
