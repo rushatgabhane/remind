@@ -21,10 +21,12 @@ module.exports = {
         cet : 1,
         utc : 0 
     },
-    calcTime(timeZone){
-        let date = new Date();
+    calcTime(timeZone, minutes, hours){
+        let date = new Date(2020, 1, 5, hours, minutes, 0, 0);
         let utc = date.getTime() + (date.getTimezoneOffset() * 60000);
-        return new Date(utc + (3600000 * this.timeZoneOffset[timeZone]));
+        let nd = new Date(utc + (3600000 * this.timeZoneOffset[timeZone]));
+        console.log(nd);
+        return nd;
     },
     // uniquely encodes two natural numbers into a single natural number.
     getCantorPair(num1, num2){

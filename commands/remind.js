@@ -21,7 +21,7 @@ module.exports = {
             let minutes = args[1], hours = args[0];
             if(args.length == 3){
                 const timeZone = args[2].toLowerCase();
-                const time = helper.calcTime(timeZone);
+                const time = helper.calcTime(timeZone, minutes, hours);
                 if(time != undefined){
                     hours = time.getHours();
                     minutes = time.getMinutes();
