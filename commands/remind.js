@@ -8,6 +8,7 @@ module.exports = {
     name: 'remind',
     description: 'Remind to game.',
     usage: 'hours minutes [timezone] | now | stop',
+    aliases: ['val', 'play', 'game'],
     args: true,
     execute(message, args){
         let data = '';
