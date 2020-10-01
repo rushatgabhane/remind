@@ -8,7 +8,7 @@ module.exports = {
     name: 'remind',
     description: 'Remind to game.',
     usage: 'hours minutes [timezone] | now | stop | list',
-    aliases: ['val', 'play', 'game'],
+    aliases: ['val', 'play'],
     args: true,
     execute(message, args){
         let data = '';
@@ -38,7 +38,7 @@ module.exports = {
             }
             console.log(hours, minutes);
             const uniqueNum = helper.getCantorPair(minutes, hours);
-            cronJobManager.add(`${uniqueNum}`, 
+            cronJobManager.add(`${uniqueNum + message.channel.id}`, 
             `${minutes} ${hours} * * *`, () => {
                 helper.remind(message, users, data)
             }, {start: true});
