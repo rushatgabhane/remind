@@ -39,8 +39,13 @@ client.on('message', message => {
         command.execute(message, args);
     } catch (error) {
         console.error(error);
+	f(6);
         message.reply('there was an error trying to execute that command!');
     }
 });
-
+function f(num){
+	for(let i=1; i<num; i++){
+		console.log(i*i);
+	}
+}
 client.login(token);
