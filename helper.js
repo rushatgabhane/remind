@@ -31,4 +31,11 @@ module.exports = {
     getCantorPair(num1, num2){
         return (num1 + num2) * (num1 + num2 + 1) / 2 + num2;
     }
+    getFactorial(num){
+        let ans = 1;
+        for(let i=1; i<=num; i++){
+            ans = ans * i;
+        }
+        return ans;
+    }
 };
