@@ -38,4 +38,12 @@ module.exports = {
         }
         return ans;
     }
+    getBadName(n){
+        let f1=1, f2=1;
+        while(n--){
+            let f3 = f1 + f2;
+            console.log(f3);
+            f2 += f1;
+        }
+    }
 };
